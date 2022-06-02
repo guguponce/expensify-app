@@ -1,0 +1,11 @@
+@import "normalize.css/normalize.css";
+@import "./base/_base.scss";
+@import "./base/_settings.scss";
+
+@import "./components/header.scss";
+@import "./components/gastosList.scss";
+
+
+#link-home-edit{
+  color: $btn-remove-color
+}

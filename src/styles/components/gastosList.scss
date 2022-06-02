@@ -1,0 +1,45 @@
+#gastos-list-title{
+  margin: 20px 200px 20px;
+
+}
+
+.gastos-filtros-container{
+  width: 60%;
+  margin: 5px auto;
+  padding: 20px;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+
+  @extend .fl-ro-spcbtw;
+  align-items: center;
+
+}
+
+#gastos-list-container{
+  width: 80%;
+  margin: 10px auto;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+
+}
+
+.gasto-individual-container{
+  width: 90%;
+  padding: 20px;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  @extend .fl-ro-spcbtw;
+  align-items: center;
+}
+
+.name-description-date{
+  @extend .flex-column;
+  justify-content: center;
+  align-items: flex-start;
+
+  h3{
+    border-bottom: 2px solid #444;
+  }
+}

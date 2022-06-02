@@ -1,0 +1,18 @@
+#container{
+  width: 90%;
+  height: 100px;
+  margin: 0 auto;
+  @extend .fl-ro-spcbtw;
+  align-items: center;
+
+  nav{
+    width: 30%;
+    @extend .fl-ro-spcbtw;
+    align-items: center;
+  }
+}
+
+.active-navlink{
+  font-weight: bold;
+
+}

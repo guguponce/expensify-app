@@ -1,0 +1,21 @@
+// COLORS
+$btn-main-color: #007bff;
+$btn-remove-color: #d66161;
+$background-modal: #52A5F850;
+$background-main: white;
+$border-options: #ddd;
+
+// FLEX TYPES
+.flex-row{
+display: flex;
+flex-direction: row;
+}
+
+.flex-column{
+display: flex;
+flex-direction: column;
+}
+.fl-ro-spcbtw{
+  @extend .flex-row;
+  justify-content: space-between;
+}
