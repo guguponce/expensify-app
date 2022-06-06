@@ -18,7 +18,6 @@ const AppRouter=()=>(
          <Route path="/" element={<Dashboard />} exact={true} />
          <Route path="/create" element={<AddExpensePage />} />
          <Route path="/edit/:gastoId" element={<EditExpensePage />} />
-         <Route path="/edit" element={<EditExpensePage />} />
          <Route path="/help" element={<HelpPage />} />
          <Route path="*" element={<NoMatch />} />
        </Routes>
