@@ -7,7 +7,7 @@ const GastoIndividual=({ id, name, description, createdAt, amount })=>(
     <div className="name-description-date">
       <h3>{name}</h3>
       <p>{description}</p>
-      <p>Created at: {(createdAt)}</p>
+      <p>Created at: {moment(createdAt).format("DD/MM/YYYY")}</p>
     </div>
     <div>
       <h3>${amount}</h3>

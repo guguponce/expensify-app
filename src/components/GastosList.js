@@ -12,7 +12,7 @@ const GastosList=(props)=>(
     <h2 id="gastos-list-title">Lista de Gastos:</h2>
     <GastosListFiltros {...props.filtros} />
     <div id="gastos-list-container">
-      {(props.gastosVisibles.length === 0 && props.gastos.length > 0) ? 
+      {(props.gastosVisibles.length === 0 && props.gastos.length > 0) ?
         (<h3 className="no-gastos-text">No hay gastos dentro de los filtros aplicados.</h3>)
         : null}
       {props.gastos.length === 0 ?
@@ -21,7 +21,7 @@ const GastosList=(props)=>(
           return (
           <div  className="gasto-individual-container" key={item.id}>
             <GastoIndividual {...item} />
-            <Link to={`/edit/${item.id}`}>Edit</Link>
+            <Link to={`/edit/${item.id}`}><button className="edit-btn btn btn-primary"></button></Link>
             <button id={item.id}
               className="btn btn-danger"
               onClick={(e)=>{
