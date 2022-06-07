@@ -21,7 +21,6 @@ const store = storeDeclaration()
 const currentState = store.getState()
 const visibleGastos = getVisibleGastos(currentState.gastos, currentState.filtros)
 
-
 const container = document.getElementById("root")
 const htmlRoot = createRoot(container);
 htmlRoot.render(
