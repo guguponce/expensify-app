@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\gugu_\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js run dev-server
+  C:\Program Files\nodejs\node.exe C:\Users\gugu_\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js run live-build
 
 PATH: 
   C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Windows Live\Shared;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\gugu_\miniconda3;C:\Users\gugu_\miniconda3\Library\mingw-w64\bin;C:\Users\gugu_\miniconda3\Library\usr\bin;C:\Users\gugu_\miniconda3\Library\bin;C:\Users\gugu_\miniconda3\Scripts;C:\Users\gugu_\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\gugu_\AppData\Local\atom\bin;C:\Users\gugu_\AppData\Local\Microsoft\WindowsApps;C:\Users\gugu_\AppData\Roaming\npm
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  SyntaxError: C:\Users\gugu_\Documents\Phyton Projects\CSS\jsProjects\React-Course\Mead-ReactCourse\expensify-app\package.json: Unexpected token } in JSON at position 1366
+  SyntaxError: C:\Users\gugu_\Documents\Phyton Projects\CSS\jsProjects\React-Course\Mead-ReactCourse\expensify-app\package.json: Unexpected string in JSON at position 148
       at JSON.parse (<anonymous>)
       at C:\Users\gugu_\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
       at Generator.next (<anonymous>)
@@ -29,7 +29,9 @@ npm manifest:
     "author": "Augusto",
     "license": "MIT",
     "scripts": {
+      "live-build"
       "build": "webpack",
+      "server": "live-server public/",
       "dev-server": "webpack-dev-server",
       "test": "jest",
       "start": "node server/server.js",
@@ -49,6 +51,7 @@ npm manifest:
       "express": "^4.18.1",
       "heroku": "^7.60.2",
       "jquery": "^3.6.0",
+      "live-server": "^1.2.2",
       "moment": "^2.29.3",
       "normalize.css": "^8.0.1",
       "popper.js": "^1.16.1",
@@ -63,14 +66,14 @@ npm manifest:
       "sass-loader": "^12.6.0",
       "style-loader": "^3.3.1",
       "uuid": "^8.3.2",
-      "webpack": "^5.73.0",
-      "webpack-dev-server": "^4.9.1"
+      "webpack": "^5.73.0"
     },
     "devDependencies": {
       "sass": "^1.51.0",
       "webpack-cli": "^4.9.2",
       "jest": "20.0.4",
       "react-test-renderer": "^18.1.0",
+      "webpack-dev-server": "^4.9.1"
     }
   }
 

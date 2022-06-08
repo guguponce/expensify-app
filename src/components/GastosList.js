@@ -5,12 +5,20 @@ import getVisibleGastos from "../selectors/gastos"
 import {removeGasto} from "../actions/gastos"
 import GastoIndividual from "./GastoIndividual"
 import GastosListFiltros from "./GastosListFiltros"
+import Summary from "./Summary"
 
 
 const GastosList=(props)=>(
   <div>
     <h2 id="gastos-list-title">Lista de Gastos:</h2>
-    <GastosListFiltros {...props.filtros} />
+    <div className="filtros-total-container">
+      <GastosListFiltros {...props.filtros} />
+      <div id="total-gastos-container">
+        <h3>Total filtrado:</h3>
+        <h4>{`$${props.gastosVisibles.reduce(
+          (total, item)=> total + item.amount, 0)}`}</h4>
+      </div>
+    </div>
     <div id="gastos-list-container">
       {(props.gastosVisibles.length === 0 && props.gastos.length > 0) ?
         (<h3 className="no-gastos-text">No hay gastos dentro de los filtros aplicados.</h3>)
@@ -21,16 +29,19 @@ const GastosList=(props)=>(
           return (
           <div  className="gasto-individual-container" key={item.id}>
             <GastoIndividual {...item} />
-            <Link to={`/edit/${item.id}`}><button className="edit-btn btn btn-primary"></button></Link>
-            <button id={item.id}
-              className="btn btn-danger"
-              onClick={(e)=>{
-                props.dispatch(removeGasto(item.id))
-            }}
-              >Remove</button>
+            <div className="edit-remove-container">
+              <button id={item.id}
+                className="btn btn-danger"
+                onClick={(e)=>{
+                  props.dispatch(removeGasto(item.id))
+                }}
+                >Remove</button>
+            <Link to={`/edit/${item.id}`}><button className="edit-btn btn btn-primary">Edit</button></Link>
+          </div>
           </div>
         )}))}
     </div>
+    {props.gastos.length && <Summary gastos={props.gastos}/>}
   </div>)
 
   // props y data que pasaremos a GastosList
