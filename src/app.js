@@ -16,7 +16,7 @@ const store = storeDeclaration()
 
 // store.dispatch(addGasto({name: "Water", amount: 100, createdAt: moment().add(1,"days").valueOf()}))
 // store.dispatch(addGasto({name: "Gas", amount: 80, createdAt: moment().subtract(3,"days").valueOf()}))
-store.dispatch(addGasto({name: "Electricity", description: "Abonado en cuotas", amount: 700, createdAt: moment().valueOf()}))
+// store.dispatch(addGasto({name: "Electricity", description: "Abonado en cuotas", amount: 700, createdAt: moment().valueOf()}))
 
 const currentState = store.getState()
 const visibleGastos = getVisibleGastos(currentState.gastos, currentState.filtros)
