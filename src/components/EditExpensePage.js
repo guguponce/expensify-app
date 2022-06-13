@@ -1,5 +1,5 @@
 import React from 'react';
-import { removeGasto, editGasto } from '../actions/gastos';
+import { startRemoveGasto, startEditGasto } from '../actions/gastos';
 import { sortByAmount } from '../actions/filtros';
 import { useNavigate, useParams } from 'react-router';
 import { connect } from 'react-redux';
@@ -16,7 +16,7 @@ const EditExpensePage=(props)=>{
     <GastosForm
       gastoAEditarProp={gastoAEditar}
       onSubmitGasto={(submittedGasto)=>{
-        props.dispatch(editGasto(gastoId, submittedGasto))
+        props.dispatch(startEditGasto(gastoId, submittedGasto))
         setTimeout(()=>{navigate("/")},2000)
       }}
     />
@@ -24,7 +24,7 @@ const EditExpensePage=(props)=>{
       className="btn btn-danger"
       onClick={(e)=>{
         navigate("/")
-        props.dispatch(removeGasto(gastoId))
+        props.dispatch(startRemoveGasto(gastoId))
     }}
       >Remove</button>
   </div>

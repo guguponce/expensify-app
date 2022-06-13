@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import getVisibleGastos from "../selectors/gastos"
-import {removeGasto} from "../actions/gastos"
+import {startRemoveGasto} from "../actions/gastos"
 import GastoIndividual from "./GastoIndividual"
 import GastosListFiltros from "./GastosListFiltros"
 import Summary from "./Summary"
@@ -25,15 +25,15 @@ const GastosList=(props)=>(
         : null}
       {props.gastos.length === 0 ?
         (<h3 className="no-gastos-text">No Hay gastos realizados.</h3>)
-        : (props.gastosVisibles.map(item=>{
+        : (props.gastosVisibles.map((item,index)=>{
           return (
-          <div  className="gasto-individual-container" key={item.id}>
+          <div  className="gasto-individual-container" key={index}>
             <GastoIndividual {...item} />
             <div className="edit-remove-container">
               <button id={item.id}
                 className="btn btn-danger"
                 onClick={(e)=>{
-                  props.dispatch(removeGasto(item.id))
+                  props.dispatch(startRemoveGasto(item.id))
                 }}
                 >Remove</button>
             <Link to={`/edit/${item.id}`}><button className="edit-btn btn btn-primary">Edit</button></Link>

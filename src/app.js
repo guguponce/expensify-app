@@ -5,18 +5,20 @@ import AppRouter from './routers/AppRouter.js';
 import { Provider } from 'react-redux';
 import storeDeclaration from "./store/configure-store"
 import getVisibleGastos from "./selectors/gastos"
-import { addGasto, removeGasto, editGasto } from './actions/gastos'
+import { startAddGasto, removeGasto, editGasto } from './actions/gastos'
 import { editFilterText, sortByDate, sortByAmount, setStartDate, setEndDate } from './actions/filtros'
 import moment from 'moment';
 // CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 import css from "./styles/styles.scss"
 
+// import "./firebase/firebase"
+
 const store = storeDeclaration()
 
-// store.dispatch(addGasto({name: "Water", amount: 100, createdAt: moment().add(1,"days").valueOf()}))
-// store.dispatch(addGasto({name: "Gas", amount: 80, createdAt: moment().subtract(3,"days").valueOf()}))
-// store.dispatch(addGasto({name: "Electricity", description: "Abonado en cuotas", amount: 700, createdAt: moment().valueOf()}))
+store.dispatch(startAddGasto({name: "Water", amount: 100, createdAt: moment().add(1,"days").valueOf()}))
+// store.dispatch(startAddGasto({name: "Gas", amount: 80, createdAt: moment().subtract(3,"days").valueOf()}))
+// store.dispatch(startAddGasto({name: "Electricity", description: "Abonado en cuotas", amount: 700, createdAt: moment().valueOf()}))
 
 const currentState = store.getState()
 const visibleGastos = getVisibleGastos(currentState.gastos, currentState.filtros)
