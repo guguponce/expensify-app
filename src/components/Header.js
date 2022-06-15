@@ -30,8 +30,8 @@ const Header=(props)=>{
   </div>)
 }
 
-const mapDispatchToProps = (dispatch)=>{
+const mapDispatchToProps = (dispatch)=>({
   startLogOut: ()=>dispatch(startLogOut())
-}
+})
 
 export default connect(undefined, mapDispatchToProps)(Header)
