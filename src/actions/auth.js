@@ -1,11 +1,11 @@
 import { googleAuthProvider } from '../firebase/firebase';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from "firebase/auth";
 
 
+const auth = getAuth();
 export const startLogIn=()=>{
   return ()=>{
     console.log("startLogin started");
-    const auth = getAuth();
     return signInWithPopup(auth, googleAuthProvider).then((result)=>{
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
@@ -14,6 +14,14 @@ export const startLogIn=()=>{
       console.log("authentication")
     }).catch((err)=>{
       console.log(err);
+    })
+  }
+}
+
+export const startLogOut=()=>{
+  return ()=>{
+    signOut(auth).then(()=>{
+      console.log("You're out");
     })
   }
 }
