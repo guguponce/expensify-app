@@ -1,6 +1,7 @@
 import { googleAuthProvider } from '../firebase/firebase';
 import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom"
+import { history } from "./routers/AppRouter"
 
 const navigate = useNavigate()
 const auth = getAuth();
@@ -13,7 +14,7 @@ export const startLogIn=()=>{
       // The signed-in user info.
       const user = result.user;
       console.log("authentication")
-      navigate("/dashboard")
+      history.push("/dashboard")
     }).catch((err)=>{
       console.log(err);
     })
