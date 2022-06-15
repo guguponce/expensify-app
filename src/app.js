@@ -36,6 +36,7 @@ htmlRoot.render(
   </Provider>);
 })
 
+
 const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
   if (user) {
