@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes, NavLink, Link } from "react-router-dom";
-
+import { createBrowserHistory } from "history";
 // componentes
 import Dashboard from "../components/Dashboard.js";
 import Header from "../components/Header.js";
@@ -10,6 +10,7 @@ import NoMatch from "../components/NoMatch";
 import HelpPage from "../components/HelpPage.js";
 import LogInPage from "../components/LogInPage.js";
 
+export const history = createBrowserHistory()
 
 const AppRouter=()=>(
     <BrowserRouter>

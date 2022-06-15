@@ -1,5 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+//REACT-ROUTER
+import { useLocation } from "react-router-dom"
+import { history } from "./routers/AppRouter"
+//
 import AppRouter from './routers/AppRouter.js';
 // REDUX
 import { Provider } from 'react-redux';
@@ -11,8 +15,8 @@ import moment from 'moment';
 // CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 import css from "./styles/styles.scss"
+//FIREBASE
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-
 
 const store = storeDeclaration()
 //
@@ -29,20 +33,36 @@ const htmlRoot = createRoot(container);
 htmlRoot.render(
   <h1>Coming soon...</h1>
 )
-store.dispatch(startGetGastos()).then(() => {
-htmlRoot.render(
-  <Provider store={store}>
-    <AppRouter />
-  </Provider>);
-})
+// store.dispatch(startGetGastos()).then(() => {
+// htmlRoot.render(
+//   <Provider store={store}>
+//     <AppRouter />
+//   </Provider>);
+// })
 
+let alreadyRendered = false;
+const renderApp=()=>{
+  if(!alreadyRendered){
+    htmlRoot.render(
+      <Provider store={store}>
+        <AppRouter />
+      </Provider>);
+    alreadyRendered = true
+  }
+}
 
 const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
   if (user) {
+    store.dispatch(startGetGastos()).then(() => {
+      renderApp()
+    })
     console.log("login");
+    if(history.location.pathname === "/"){
+    history.push("/dashboard")}
   }else{
-
+      renderApp()
       console.log("logout");
+      history.push("/")
   }
 })
