@@ -1,6 +1,6 @@
 import { googleAuthProvider } from '../firebase/firebase';
 import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from "firebase/auth";
-import { history } from "./routers/AppRouter"
+// import { history } from "./routers/AppRouter"
 
 const auth = getAuth();
 export const startLogIn=()=>{
@@ -12,7 +12,7 @@ export const startLogIn=()=>{
       // The signed-in user info.
       const user = result.user;
       console.log("authentication")
-      history.push("/dashboard")
+      // history.push("/dashboard")
     }).catch((err)=>{
       console.log(err);
     })
