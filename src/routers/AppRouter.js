@@ -8,6 +8,7 @@ import AddExpensePage from "../components/AddExpensePage.js";
 import EditExpensePage from "../components/EditExpensePage.js";
 import NoMatch from "../components/NoMatch";
 import HelpPage from "../components/HelpPage.js";
+import LogInPage from "../components/LogInPage.js";
 
 
 const AppRouter=()=>(
@@ -15,10 +16,11 @@ const AppRouter=()=>(
       <div>
         <Header />
         <Routes>
-         <Route path="/" element={<Dashboard />} exact={true} />
-         <Route path="/create" element={<AddExpensePage />} />
-         <Route path="/edit/:gastoId" element={<EditExpensePage />} />
-         <Route path="/help" element={<HelpPage />} />
+         <Route path="/" element={<LogInPage />} exact={true} />
+         <Route path="dashboard" element={<Dashboard />}  exact={true} />
+         <Route path="/create" element={<AddExpensePage />}  exact={true} />
+         <Route path="/edit/:gastoId" element={<EditExpensePage />}  exact={true} />
+         <Route path="/help" element={<HelpPage />}  exact={true} />
          <Route path="*" element={<NoMatch />} />
        </Routes>
      </div>

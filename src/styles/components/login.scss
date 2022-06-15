@@ -1,0 +1,18 @@
+#login-container{
+  width: 50%;
+  height: 50%;
+  margin: 10% auto;
+  @extend .flex-column;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-form{
+  @extend .flex-column;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+#login-button{
+  margin: 0 auto;
+}

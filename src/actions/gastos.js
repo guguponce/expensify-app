@@ -54,3 +54,24 @@ export const startEditGasto=(id,payload)=>{
             dispatch(editGasto(id, payload))})
         }
       }
+
+export const getGastos=(arrGastos)=>({
+  type: "GET_GASTOS",
+  arrGastos
+})
+
+export const startGetGastos=()=>{
+  const defaultDisplayedGastos = []
+  return (dispatch)=>{
+     return get(referencia).then((snapshot)=>{
+
+          snapshot.forEach(fireGasto=>{
+            defaultDisplayedGastos.push({
+              id: fireGasto.key,
+              ...fireGasto.val()})
+          })
+        }).then(()=>{
+        dispatch(getGastos(defaultDisplayedGastos))}
+      )
+    }
+}

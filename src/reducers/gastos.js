@@ -1,5 +1,3 @@
-// import { v4 as uuidv4 } from 'uuid';
-
 const gastosReducerDefaultState = []
 export default (state=gastosReducerDefaultState, action)=>{
   switch (action.type){
@@ -18,6 +16,8 @@ export default (state=gastosReducerDefaultState, action)=>{
           return item
         }
       });
+    case "GET_GASTOS":
+      return [...action.arrGastos];
     default:
       return state;
   }
