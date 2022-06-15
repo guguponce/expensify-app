@@ -1,6 +1,5 @@
 import { googleAuthProvider } from '../firebase/firebase';
 import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from "firebase/auth";
-import { useNavigate } from "react-router-dom"
 import { history } from "./routers/AppRouter"
 
 const auth = getAuth();
