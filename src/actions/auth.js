@@ -3,7 +3,6 @@ import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from "firebase/
 import { useNavigate } from "react-router-dom"
 import { history } from "./routers/AppRouter"
 
-const navigate = useNavigate()
 const auth = getAuth();
 export const startLogIn=()=>{
   return ()=>{
