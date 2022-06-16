@@ -1,9 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { startLogIn } from "../actions/auth"
+import { useNavigate } from "react-router-dom"
 
 
 const LogIn = (props)=>{
+  const navigate = useNavigate()
+  loginFx=()=>{async function start(){
+    props.startLogInFx()
+  }
+  startLogInFx().then(() => {
+    navigate("/dashboard")
+  })}
   return (
     <div id="login-container">
       <h2>Please log in to start the app</h2>
@@ -12,7 +20,7 @@ const LogIn = (props)=>{
         <input type="email" /><br />
         <label>Password:</label><br />
         <input type="password" /><br /> */}
-        <button onClick={props.startLogIn} id="login-button" className="btn btn-primary">Log In</button>
+        <button onClick={loginFx} id="login-button" className="btn btn-primary">Log In</button>
       {/* </form> */}
 
     </div>
