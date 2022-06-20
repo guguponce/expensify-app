@@ -1,4 +1,4 @@
-#container{
+#navbar-container{
   width: 90%;
   height: 100px;
   margin: 0 auto;
@@ -12,7 +12,23 @@
   }
 }
 
+nav.loggedOut{
+  text-align: right;
+  // justify-content: flex-start;
+  background-color: #ccc
+}
+
 .active-navlink{
   font-weight: bold;
+
+}
+
+#gohome-button{
+  // color: pink;
+  // border: 1px solid red
+}
+
+#navbar {
+  // border: 1px solid black
 
 }

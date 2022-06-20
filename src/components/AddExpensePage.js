@@ -13,7 +13,7 @@ const AddExpensePage=(props)=>{
     <GastosForm
       onSubmitGasto={(submittedGasto)=>{
         props.dispatch(startAddGasto(submittedGasto))
-        setTimeout(()=>{navigate("/")},2000)
+        setTimeout(()=>{navigate("/dashboard")},2000)
       }}/>
   </div>
 )};

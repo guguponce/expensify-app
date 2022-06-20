@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import storeDeclaration from "./store/configure-store"
 import getVisibleGastos from "./selectors/gastos"
 import { startAddGasto, removeGasto, editGasto, startGetGastos } from './actions/gastos'
-import { editFilterText, sortByDate, sortByAmount, setStartDate, setEndDate } from './actions/filtros'
+import { login, logout } from './actions/auth'
 import moment from 'moment';
 // CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,11 +19,6 @@ import css from "./styles/styles.scss"
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const store = storeDeclaration()
-//
-// store.dispatch(startAddGasto({name: "Water", amount: 100, createdAt: moment().add(1,"days").valueOf()}))
-// store.dispatch(startAddGasto({name: "Gas", amount: 80, createdAt: moment().subtract(3,"days").valueOf()}))
-// store.dispatch(startAddGasto({name: "Electricity", description: "Abonado en cuotas", amount: 700, createdAt: moment().valueOf()}))
-
 const currentState = store.getState()
 const visibleGastos = getVisibleGastos(currentState.gastos, currentState.filtros)
 
@@ -40,6 +35,8 @@ htmlRoot.render(
 //   </Provider>);
 // })
 
+
+
 let alreadyRendered = false;
 const renderApp=()=>{
   if(!alreadyRendered){
@@ -54,15 +51,14 @@ const renderApp=()=>{
 const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
   if (user) {
+    store.dispatch(login(user.uid))
     store.dispatch(startGetGastos()).then(() => {
       renderApp()
     })
-    console.log("login");
-    if(history.location.pathname === "/"){
-    history.push("/dashboard")}
+    // if(history.location.pathname === "/"){
+    // history.push("/dashboard")}
   }else{
+      store.dispatch(logout())
       renderApp()
-      console.log("logout");
-      history.push("/")
   }
 })

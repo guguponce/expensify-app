@@ -1,8 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
 import { app, dbRef, db } from "../firebase/firebase"
+import { getAuth } from "firebase/auth";
 import { push, off, onValue, remove, update, getDatabase, ref, set, get, child } from "firebase/database";
 // ACTIONS CREATORS
-const referencia = ref(db, "gastos")
+
 
 export const addGasto = (gastoDispatched)=>({
     type: "ADD_GASTO",
@@ -10,8 +11,11 @@ export const addGasto = (gastoDispatched)=>({
   })
 
 export const startAddGasto = (submittedGasto = {}) => {
-    return (dispatch) => {
-      const {
+      return (dispatch, getState)=>{
+        const auth = getAuth()
+        const userId = getState(auth).auth.uid;
+        const referencia = ref(db, `users/${userId}/gastos`)
+        const {
         name = "",
         description = "",
         amount = 100,
@@ -34,7 +38,10 @@ export const startAddGasto = (submittedGasto = {}) => {
   })
 
   export const startRemoveGasto=(id=>{
-    return (dispatch) =>{
+    return (dispatch, getState)=>{
+      const auth = getAuth()
+      const userId = getState(auth).auth.uid;
+      const referencia = ref(db, `users/${userId}/gastos`)
       return remove(child(referencia, id))
         .then(()=>{
           dispatch(removeGasto(id))
@@ -49,7 +56,10 @@ export const startAddGasto = (submittedGasto = {}) => {
     })
 
 export const startEditGasto=(id,payload)=>{
-  return (dispatch) => {
+  return (dispatch, getState)=>{
+    const auth = getAuth()
+    const userId = getState(auth).auth.uid;
+    const referencia = ref(db, `users/${userId}/gastos`)
     return update(child(referencia, id),{...payload}).then(()=>{
             dispatch(editGasto(id, payload))})
         }
@@ -62,8 +72,11 @@ export const getGastos=(arrGastos)=>({
 
 export const startGetGastos=()=>{
   const defaultDisplayedGastos = []
-  return (dispatch)=>{
-     return get(referencia).then((snapshot)=>{
+  return (dispatch, getState)=>{
+    const auth = getAuth()
+    const userId = getState(auth).auth.uid;
+    const referencia = ref(db, `users/${userId}/gastos`)
+    return get(referencia).then((snapshot)=>{
 
           snapshot.forEach(fireGasto=>{
             defaultDisplayedGastos.push({

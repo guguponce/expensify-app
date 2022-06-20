@@ -17,7 +17,7 @@ const EditExpensePage=(props)=>{
       gastoAEditarProp={gastoAEditar}
       onSubmitGasto={(submittedGasto)=>{
         props.dispatch(startEditGasto(gastoId, submittedGasto))
-        setTimeout(()=>{navigate("/")},2000)
+        setTimeout(()=>{navigate("/dashboard")},2000)
       }}
     />
     <button

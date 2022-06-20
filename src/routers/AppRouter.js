@@ -9,6 +9,8 @@ import EditExpensePage from "../components/EditExpensePage.js";
 import NoMatch from "../components/NoMatch";
 import HelpPage from "../components/HelpPage.js";
 import LogInPage from "../components/LogInPage.js";
+import PrivateRoute from "./PrivateRoutes"
+import LogInAccess from "./PublicRoutes"
 
 export const history = createBrowserHistory()
 
@@ -17,11 +19,20 @@ const AppRouter=()=>(
       <div>
         <Header />
         <Routes>
-         <Route path="/" element={<LogInPage />} exact={true} />
-         <Route path="dashboard" element={<Dashboard />}  exact={true} />
-         <Route path="/create" element={<AddExpensePage />}  exact={true} />
-         <Route path="/edit/:gastoId" element={<EditExpensePage />}  exact={true} />
-         <Route path="/help" element={<HelpPage />}  exact={true} />
+         <Route
+           path="/"
+           element={<LogInAccess component={LogInPage} />}
+           exact={true} />
+         <Route
+           path="dashboard"
+           element={<PrivateRoute component={Dashboard} />} exact={true} />
+         <Route
+           path="create"
+           element={<PrivateRoute component={AddExpensePage} />} exact={true} />
+         <Route
+           path="edit/:gastoId"
+           element={<PrivateRoute component={EditExpensePage} />} exact={true} />
+         {/* <Route path="/help" element={<HelpPage />}  exact={true} /> */}
          <Route path="*" element={<NoMatch />} />
        </Routes>
      </div>
