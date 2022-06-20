@@ -4,7 +4,8 @@ module.exports = {
   mode: 'development',
   entry: "./src/app.js",
   output: {
-    path: path.join(__dirname, "/public/dist"),
+    // path: path.join(__dirname, "/public/dist"),
+      path: path.join(__dirname, "public", "dist"),
     filename: "bundle.js",
     publicPath: "/"
   },
@@ -23,7 +24,8 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     static: {
-      directory: path.join(__dirname, '/public'),
+      // directory: path.join(__dirname, '/public'),
+      directory: path.join(__dirname, "public","dist"),
     },
     compress: true,
     port: process.env.PORT || 3000,
