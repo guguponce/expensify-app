@@ -1,13 +1,13 @@
 const path = require('path');
-
 module.exports = {
   mode: 'development',
   entry: "./src/app.js",
   output: {
-    // path: path.join(__dirname, "/public/dist"),
-      path: path.resolve(__dirname, "public", "dist"),
+    // path: path.join(__dirname, "public", "dist"),
+    // filename: "bundle.js"
+    path: path.resolve(__dirname, "public", "dist"),
     filename: "bundle.js",
-    publicPath: "/"
+    publicPath: '/'
   },
   module: {
     rules: [{
@@ -24,10 +24,44 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     static: {
-      // directory: path.join(__dirname, '/public'),
-      directory: path.join(__dirname, "public","dist"),
+      directory: path.join(__dirname, 'public', "dist"),
     },
+    // historyApiFallback: true,
     compress: true,
     port: process.env.PORT || 3000,
   },
 }
+
+// const path = require('path');
+//
+// module.exports = {
+//   mode: 'development',
+//   entry: "./src/app.js",
+//   output: {
+//     path: path.join(__dirname, "/public/dist"),
+//       // path: path.resolve(__dirname, "public", "dist"),
+//     filename: "bundle.js",
+//     publicPath: "/"
+//   },
+//   module: {
+//     rules: [{
+//       loader: 'babel-loader',
+//       test: /\.js$/,
+//       exclude: /node_modules/
+//     },{
+//       test: /\.s?css$/,
+//       use: ["style-loader", "css-loader", "sass-loader"],
+//     }
+//     ]
+//   },
+//   devtool: "eval-cheap-module-source-map",
+//   devServer: {
+//     historyApiFallback: true,
+//     static: {
+//       directory: path.join(__dirname, '/public'),
+//       // directory: path.join(__dirname, "public","dist"),
+//     },
+//     compress: true,
+//     port: process.env.PORT || 3000,
+//   },
+// }
