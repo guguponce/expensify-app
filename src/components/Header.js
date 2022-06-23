@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { startLogOut } from "../actions/auth"
 import { connect } from 'react-redux';
-
+import logo from "../../public/images/logo.png";
 const Header=(props)=>{
   const navigate = useNavigate()
   const location = useLocation();
@@ -15,7 +15,7 @@ const Header=(props)=>{
   return (
   <header>
   <div id="navbar-container">
-    <div id="logo" onClick={()=>{navigate("/")}}></div>
+    <div id="logo" style={{backgroundImage: `url(${logo})`}} onClick={()=>{navigate("/")}}></div>
     <nav id="navbar">
       {location.pathname === "/create" && <NavLink
         to="/"
