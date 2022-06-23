@@ -4,18 +4,18 @@ import { startLogIn } from "../actions/auth"
 import { useNavigate, useLocation } from "react-router-dom"
 
 
-const LogIn = (props)=>{  
+const LogIn = (props)=>{
   return (
     <div id="login-container">
-      <h2>Please log in to start the app</h2>
-      {/* <form id='login-form'> */}
-        {/* <label>Username/Email:</label><br />
-        <input type="email" /><br />
-        <label>Password:</label><br />
-        <input type="password" /><br /> */}
-        <button onClick={props.startLogIn} id="login-button" className="btn btn-primary">Log In</button>
-      {/* </form> */}
-
+      <div id="login-box">
+        <div id="login-section">
+          <div id="login-section-center">
+            <h2>Empieza a cuidar tus gastos</h2>
+            <button onClick={props.startLogIn} id="login-button" className="btn btn-primary">Log In</button>
+          </div>
+      </div>
+      <div id="alcancia-img"></div>
+      </div>
     </div>
   )
 }

@@ -18,23 +18,21 @@ class GastosListFiltros extends React.Component{
   render(){
   return (
   <div className="gastos-filtros-container">
-    <div className="type-filter-container">
-      <div className="text-sort-filtros-container">
-      <label>Text Filter:</label><br/>
+    {/* <div className="type-filter-container"> */}
+      <div className="filtro-type">
+      <label>Filtro por texto:</label>
       <input type="text"
         value={this.props.text}
         onChange={(e)=>{this.props.dispatch(editFilterText(e.target.value))}}
-      /><br/>
-      <label>Sort By:</label><br/>
-      <select onChange={(e)=>{e.target.value=="amount"? this.props.dispatch(sortByAmount()) : this.props.dispatch(sortByDate())}}>
-        <option value="date">Date</option>
-        <option value="amount">Amount</option>
-      </select>
-    </div>
+      />
+      </div>
 
-    </div>
 
-    <div className="type-filter-container">
+    {/* </div> */}
+
+    {/* <div className="type-filter-container"> */}
+    <div className="filtro-type ">
+      <label>Filtro por fechas:</label>
       <DateRangePicker
         startDate={this.props.filtros.startDate} // momentPropTypes.momentObj or null,
         startDateId="start_date_id" // PropTypes.string.isRequired,
@@ -47,8 +45,16 @@ class GastosListFiltros extends React.Component{
         isOutsideRange={()=>false}
         showClearDates={true} // PropTypes.func.isRequired,
       />
+      </div>
 
-    </div>
+    {/* </div> */}
+      <div className="filtro-type">
+        <label>Ordenar por:</label>
+        <select onChange={(e)=>{e.target.value=="amount"? this.props.dispatch(sortByAmount()) : this.props.dispatch(sortByDate())}}>
+          <option value="date">Fecha</option>
+          <option value="amount">Monto</option>
+        </select>
+      </div>
   </div>
 )}
 }

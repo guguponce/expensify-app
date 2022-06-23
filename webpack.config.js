@@ -32,11 +32,14 @@ module.exports = {
   },
 }
 
+
+//dev-server:
+
 // const path = require('path');
 //
 // module.exports = {
 //   mode: 'development',
-//   entry: "./src/app.js",
+//   entry: ["babel-polyfill","./src/app.js"],
 //   output: {
 //     path: path.join(__dirname, "/public/dist"),
 //       // path: path.resolve(__dirname, "public", "dist"),
@@ -51,6 +54,10 @@ module.exports = {
 //     },{
 //       test: /\.s?css$/,
 //       use: ["style-loader", "css-loader", "sass-loader"],
+//     },
+//     {
+//       test: /\.(jpg|png|svg|gif)$/,
+//       type: 'asset/resource',
 //     }
 //     ]
 //   },
@@ -63,5 +70,10 @@ module.exports = {
 //     },
 //     compress: true,
 //     port: process.env.PORT || 3000,
+//   },
+//   watch: true,
+//   watchOptions: {
+//     aggregateTimeout: 200,
+//     poll: 1000,
 //   },
 // }

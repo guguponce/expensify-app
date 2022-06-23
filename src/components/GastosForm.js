@@ -55,25 +55,24 @@ class GastosForm extends React.Component{
 
   render(){
     return (
-  <div>
-    <h2>Form</h2>
+  <div id="add-form-container">
       <form onSubmit={this.submitGasto}>
         {/* NAME */}
-        <label htmlFor="form-name">Name:</label><br />
+        <label htmlFor="form-name">Nombre:</label>
         <input  type="text"
           id="form-name"
           autoFocus
           value={this.state.name}
           onChange={this.onChangeName}/><br />
         {/* DESCRIPTION */}
-        <label htmlFor="form-description">Description:</label><br />
+        <label htmlFor="form-description">Descripción:</label>
         <input type="textarea"
           id="form-description"
           value={this.state.description}
           placeholder="(optional)"
           onChange={this.onChangeDescription}/><br />
         {/* AMOUNT */}
-        <label htmlFor="form-amount">Amount</label><br />
+        <label htmlFor="form-amount">Monto</label>
         <input  type="number"
           id="form-amount"
           step={0.01}
@@ -81,7 +80,7 @@ class GastosForm extends React.Component{
           placeholder="0"
           onChange={this.onChangeAmount}/><br />
         {/* CREATED AT */}
-        <label htmlFor="form-createdAt">Created at:</label><br />
+        <label htmlFor="form-createdAt">Fecha:</label>
         <SingleDatePicker
           date={this.state.createdAt}
           onDateChange={date => date ? this.setState({ createdAt: date }) : null}
@@ -92,10 +91,11 @@ class GastosForm extends React.Component{
           isOutsideRange={()=>false}
         /><br/>
 
-        {this.state.errorSubmitting && <p id="error-message">Please insert a name and an amount.</p>}
+        {this.state.errorSubmitting && <p id="error-message">Por favor inserte un nombre y un monto.</p>}
+        <br />
         <button type="submit"
           className="btn btn-primary"
-          >Submit</button>
+          >Aceptar</button>
       </form>
   </div>
 )}}

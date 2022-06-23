@@ -1,3 +1,9 @@
+*{
+  font-family: "mainfont";
+  font-weight: 400;
+}
+
+
 
 #content{
 
@@ -8,4 +14,15 @@
 
 button{
   margin: 20px;
+}
+
+
+.btn-danger{
+  background-color: #db6e6a;
+  border: 0px;
+}
+
+.btn-primary{
+  background-color: #3D6A8F;
+  border: 0px;
 }

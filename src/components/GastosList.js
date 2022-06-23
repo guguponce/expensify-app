@@ -9,7 +9,8 @@ import Summary from "./Summary"
 
 
 const GastosList=(props)=>(
-  <div>
+  <div id="dashboard-container">
+    <div id="dashboard-box">
     <h2 id="gastos-list-title">Lista de Gastos:</h2>
     <div className="filtros-total-container">
       <GastosListFiltros {...props.filtros} />
@@ -27,7 +28,7 @@ const GastosList=(props)=>(
         (<h3 className="no-gastos-text">No Hay gastos realizados.</h3>)
         : (props.gastosVisibles.map((item,index)=>{
           return (
-          <div  className="gasto-individual-container" key={index}>
+          <div className="gasto-individual-container background-white" key={index}>
             <GastoIndividual {...item} />
             <div className="edit-remove-container">
               <button id={item.id}
@@ -42,7 +43,8 @@ const GastosList=(props)=>(
         )}))}
     </div>
     {props.gastos.length && <Summary gastos={props.gastos}/>}
-  </div>)
+  </div>
+</div>)
 
   // props y data que pasaremos a GastosList
   const mapStateToProps=(state)=>{

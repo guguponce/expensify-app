@@ -26,7 +26,12 @@ const visibleGastos = getVisibleGastos(currentState.gastos, currentState.filtros
 const container = document.getElementById("root")
 const htmlRoot = createRoot(container);
 htmlRoot.render(
-  <h1>Coming soon...</h1>
+  <div id="loading-box">
+    <div>
+    <h1>Starting</h1>
+    <img src="/images/loading.gif" />
+    </div>
+  </div>
 )
 // store.dispatch(startGetGastos()).then(() => {
 // htmlRoot.render(
@@ -34,8 +39,8 @@ htmlRoot.render(
 //     <AppRouter />
 //   </Provider>);
 // })
-
-
+//
+//
 
 let alreadyRendered = false;
 const renderApp=()=>{

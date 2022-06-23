@@ -1,102 +1,148 @@
-#gastos-list-title{
-  margin: 20px 200px 20px;
-
-}
-.filtros-total-container{
-  width: 80%;
-  height: auto;
+#dashboard-container{
   margin: 0 auto;
-  @extend .fl-ro-spcbtw;
-  align-items: center;
-}
-.gastos-filtros-container{
-  width: 80%;
-  padding: 20px;
+  width: 100vw;
+  height:auto;
+  background-color: $background-main-color;
 
-  @extend .fl-ro-spcbtw;
-  align-items: flex-start;
-
-  border: 2px solid #aaa;
-  border-radius: 5px;
-}
-
-.type-filter-container{
-  width: 45%
-}
-#total-gastos-container{
   @extend .flex-column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  width: 20%;
-  height: 100%;
-  margin: 10px;
-  background-color: #eee;
-  border: 2px solid #444;
-  border-radius: 5px;
 
-  h3{
-    text-align: center;
+  #dashboard-box{
+    margin-top: 125px;
+    width: 80vw;
+    height: auto;
+    border-radius: 20px;
+      @extend .flex-column;
+      justify-content: center;
+      align-items: center;
+
+
+
+      #gastos-list-title{
+        margin: 40px 200px 40px;
+        border-bottom: 2px solid black;
+      }
+
+
+  .filtros-total-container{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    @extend .fl-ro-spcbtw;
+    align-items: center;
+
+
+    .gastos-filtros-container{
+      width: 80%;
+      border-radius: 5px;
+      height: 100%;
+      @extend .flex-row;
+      justify-content: space-around;
+      align-items: center;
+
+      background-color: $background-secundary-color;
+      border: 2px solid #aaa;
+
+      .filtro-type{
+        height: 100%;
+        width: auto;
+        padding: 20px;
+        @extend .flex-column;
+        justify-content: space-between;
+        align-items: center;
+
+        * {
+            display: block;
+          }
+      }
+
+      .type-filter-container{
+        width: 100%
+      }
+    }
+
+    #total-gastos-container{
+      @extend .flex-column;
+      justify-content: center;
+      align-items: center;
+      width: 20%;
+      height: 100%;
+      margin: 10px;
+      background-color: #eee;
+      border: 2px solid #444;
+      border-radius: 5px;
+
+      h3{
+        text-align: center;
+      }
+    }
+
+  }
+
+  #gastos-list-container{
+    width: 100%;
+    margin: 10px auto;
+    padding: 16px 0;
+    border: 2px solid #aaa;
+    border-radius: 5px;
+    background-color: $background-secundary-color;
+
+    .no-gastos-text{
+      padding: 40px;
+      text-align: center;
+
+    }
+    .gasto-individual-container{
+      width: 90%;
+      padding: 20px;
+      margin: 10px auto;
+      background-color: #F8FCFD;
+      border-radius: 5px;
+
+
+      @extend .fl-ro-spcbtw;
+      align-items: center;
+
+      .nadeda-amount{ //gastoindividualcomponent
+        width: 80%;
+        height: 90%;
+        @extend .fl-ro-spcbtw;
+
+        background-color: #white;
+
+
+        h3{
+          display: inline-block;
+          border-bottom: 2px solid #444;
+        }
+        .name-description{
+          @extend .flex-column;
+          justify-content: between;
+          align-items: flex-start;
+        }
+        .date-amount{
+          align-items: flex-end;
+          margin-right: 20px
+        }
+      }
+      .edit-remove-container{
+        width: auto;
+        height: 90%;
+        @extend .flex-column;
+        justify-content: space-around;
+        align-items: center;
+      button{
+        margin: 5px
+      }
   }
 }
 
-#gastos-list-container{
-  width: 80%;
-  margin: 10px auto;
-  border: 2px solid #aaa;
-  border-radius: 5px;
-}
+}//gastoslistcontainer
 
-.no-gastos-text{
-  padding: 40px;
-  text-align: center;
-
-}
-
-.gasto-individual-container{
-  width: 90%;
-  padding: 20px;
-  margin: 10px auto;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-
-  @extend .fl-ro-spcbtw;
-  align-items: center;
-}
-.edit-remove-container{
-  width: auto;
-  height: 90%;
-  @extend .flex-column;
-  justify-content: space-around;
-  align-items: center;
-
-  button{
-    margin: 5px
-  }
-}
-.nadeda-amount{
-  width: 80%;
-  height: 90%;
-  @extend .fl-ro-spcbtw;
-
-
-  h3{
-    display: inline-block;
-    border-bottom: 2px solid #444;
-  }
-}
-
-.name-description{
-  @extend .flex-column;
-  justify-content: between;
-  align-items: flex-start;
-}
-.date-amount{
-  align-items: flex-end;
-  margin-right: 20px
-}
 
 #summary-container{
-  width: 80%;
+  width: 100%;
   margin: 50px auto;
   padding: 20px;
   border: 5px solid #444;
@@ -106,4 +152,41 @@
   #summary-text{
     text-align: center;
   }
+}//summary-container
+
+}
+
+
+
+
+
+}
+background-white{
+  background-color: white;
+}
+
+// Will edit everything selected including everything between a range of dates
+.CalendarDay__selected_span {
+  background: #82e0aa; //background
+  color: white; //text
+  border: 1px solid pink; //default styles include a border
+}
+
+// Will edit selected date or the endpoints of a range of dates
+.CalendarDay__selected {
+  background: red;
+  color: white;
+}
+
+// Will edit when hovered over. _span style also has this property
+.CalendarDay__selected:hover {
+  background: orange;
+  color: white;
+}
+
+// Will edit when the second date (end date) in a range of dates
+// is not yet selected. Edits the dates between your mouse and said date
+.CalendarDay__hovered_span:hover,
+.CalendarDay__hovered_span {
+  background: brown;
 }

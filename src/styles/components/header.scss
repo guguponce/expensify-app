@@ -1,34 +1,69 @@
+*{
+  // outline: 1px solid red;
+}
+header{
+  position: fixed;
+  width: 100vw;
+  @extend .fl-ro-spcbtw;
+
 #navbar-container{
   width: 90%;
-  height: 100px;
+  height: auto;
   margin: 0 auto;
+  background-color: white;
+  // top: 0;
+  z-index: 100;
   @extend .fl-ro-spcbtw;
   align-items: center;
+  border-bottom: 2px solid $navbar-text-color;
 
-  nav{
+
+  #logo{
+    width: 275px;
+    height: 125px;
+    margin-left: 16px;
+    background-image: url("../../public/images/logo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+  }
+
+  #navbar{
+
+    background-color: white;
     width: 30%;
     @extend .fl-ro-spcbtw;
     align-items: center;
+
+      color: $navbar-text-color;
+
+    #add-button-navbar{
+      padding: 10px;
+      color: white;
+      background-color: $btn-accept-color;
+      border: 1px solid $btn-accept-color;
+      border-radius: 3px;
+
+
+
+
+    }
+    .rojo{
+      color: $navbar-text-color;
+      margin: 32px;
+      }
   }
 }
 
 nav.loggedOut{
-  text-align: right;
+  color: $navbar-text-color;
+  text-align: left;
+  margin-right: 16px;
   // justify-content: flex-start;
-  background-color: #ccc
 }
 
 .active-navlink{
   font-weight: bold;
-
 }
-
-#gohome-button{
-  // color: pink;
-  // border: 1px solid red
-}
-
-#navbar {
-  // border: 1px solid black
 
 }

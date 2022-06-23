@@ -6,36 +6,28 @@ import { connect } from 'react-redux';
 const Header=(props)=>{
   const navigate = useNavigate()
   const location = useLocation();
-
   useEffect(() => {
- //   if(props.isAuthenticated && location.pathname === "/"){
- //     console.log("true");
- //     navigate("/dashboard")
- //   }else if(props.isAuthenticated === false && location.pathname !== "/"){
- //     console.log("false");
- //     navigate("/")
- //   }
-
- // console.log(document.getElementById("navbar"))
  if(!props.isAuthenticated){
    document.getElementById("navbar").style = "width: auto"
  }
 })
   const activeClassName = "active-navlink"
   return (
+  <header>
   <div id="navbar-container">
-    <h1>Routing Website</h1>
+    <div id="logo" onClick={()=>{navigate("/")}}></div>
     <nav id="navbar">
-      <NavLink
+      {location.pathname === "/create" && <NavLink
         to="/"
         id="gohome-button"
         className={({ isActive })=> isActive? activeClassName : undefined}
-        ><h5>Go Home!</h5></NavLink>
-      {props.isAuthenticated && (<span>|</span>)}
-      {props.isAuthenticated && (
-      <NavLink
+        className="rojo"
+        ><h5>Home</h5></NavLink>}
+      {props.isAuthenticated && location.pathname === "/dashboard" && <NavLink
         to="/create"
-        className={({ isActive })=> isActive? activeClassName : undefined}><h5>Add</h5></NavLink>)}
+        className={({ isActive })=> isActive? activeClassName : undefined}
+        className="rojo"
+        ><button id="add-button-navbar">Agregar nuevo gasto</button></NavLink>}
       {/* |
       <NavLink
         to="/help"
@@ -47,7 +39,8 @@ const Header=(props)=>{
         onClick={props.startLogOut}>Log Out</button>)}
     </nav>
 
-  </div>)
+  </div>
+</header>  )
 }
 
 const mapStateToProps=(state)=>({

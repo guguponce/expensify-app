@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "live-build": "webpack --watch",
-    "build": "webpack",
+    "build": "webpack --watch",
     "server": "live-server public/",
     "dev-server": "webpack-dev-server",
     "test": "jest",

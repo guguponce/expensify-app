@@ -8,13 +8,15 @@ import GastosForm from './GastosForm';
 const AddExpensePage=(props)=>{
   let navigate = useNavigate()
   return (
-  <div>
-    <h2>Add expenses</h2>
-    <GastosForm
-      onSubmitGasto={(submittedGasto)=>{
-        props.dispatch(startAddGasto(submittedGasto))
-        setTimeout(()=>{navigate("/dashboard")},2000)
-      }}/>
+  <div id="add-container">
+    <div id="add-box">
+      <h2>Agrega un nuevo gasto:</h2>
+      <GastosForm
+        onSubmitGasto={(submittedGasto)=>{
+          props.dispatch(startAddGasto(submittedGasto))
+          setTimeout(()=>{navigate("/dashboard")},2000)
+        }}/>
+    </div>
   </div>
 )};
 
