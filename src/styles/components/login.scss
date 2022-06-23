@@ -36,6 +36,11 @@
         align-items: center;
         background: $background-secundary-color;
         text-align: center;
+
+        #login-button{
+          background-color: $btn-accept-color;
+          border: 1px solid $btn-accept-color;
+        }
       }
 
     }

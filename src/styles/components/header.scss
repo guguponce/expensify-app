@@ -53,6 +53,17 @@ header{
       color: $navbar-text-color;
       margin: 32px;
       }
+
+    #btn-login{
+      background-color: $btn-accept-color;
+      border: 1px solid $btn-accept-color;
+      margin: 32px;
+    }
+    #btn-logout{
+      background-color: $btn-remove-color;
+      border: 1px solid $btn-remove-color;
+      margin: 32px;
+    }
   }
 }
 

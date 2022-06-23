@@ -11,7 +11,7 @@ const LogIn = (props)=>{
         <div id="login-section">
           <div id="login-section-center">
             <h2>Empieza a cuidar tus gastos</h2>
-            <button onClick={props.startLogIn} id="login-button" className="btn btn-primary">Log In</button>
+            <button onClick={props.startLogIn} id="login-button">Log In</button>
           </div>
       </div>
       <div id="alcancia-img"></div>

@@ -35,8 +35,12 @@ const Header=(props)=>{
       {props.isAuthenticated && (<span>|</span>)}
       {props.isAuthenticated && (
       <button
-        className="btn btn-danger"
+        id="btn-logout"
         onClick={props.startLogOut}>Log Out</button>)}
+      {!props.isAuthenticated && (
+      <button
+        id="btn-login"
+        onClick={props.startLogOut}>Log In</button>)}
     </nav>
 
   </div>
