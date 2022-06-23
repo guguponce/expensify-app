@@ -1,6 +1,9 @@
 *{
   // outline: 1px solid red;
 }
+
+import logo from "../../public/images/logo.png"
+
 header{
   position: fixed;
   width: 100vw;
@@ -22,7 +25,7 @@ header{
     width: 275px;
     height: 125px;
     margin-left: 16px;
-    background-image: url("../../public/images/logo.png");
+    background-image: url("./images/logo.png");
     background-repeat: no-repeat;
     background-size: cover;
     cursor: pointer;
