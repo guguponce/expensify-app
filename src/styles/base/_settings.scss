@@ -56,8 +56,8 @@ flex-direction: column;
 // }
 
 @font-face {
-  font-family: mainfont;
-  src: url("./base/Lato-Regular.ttf");
+  font-family: "mainfont";
+  src: url("./base/Lato-Regular.ttf") format("truetype")
   font-weight: normal;
   font-style: normal;
 }

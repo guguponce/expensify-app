@@ -40,7 +40,7 @@ const Header=(props)=>{
       {!props.isAuthenticated && (
       <button
         id="btn-login"
-        onClick={props.startLogOut}>Log In</button>)}
+        onClick={props.startLogIn}>Log In</button>)}
     </nav>
 
   </div>
@@ -52,7 +52,8 @@ const mapStateToProps=(state)=>({
 })
 
 const mapDispatchToProps = (dispatch)=>({
-  startLogOut: ()=>dispatch(startLogOut())
+  startLogOut: ()=>dispatch(startLogOut()),
+  startLogIn: ()=>dispatch(startLogIn())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)
