@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import { NavLink, useNavigate, useLocation } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation, useParams } from 'react-router-dom';
 import { startLogOut } from "../actions/auth"
 import { connect } from 'react-redux';
 import logo from "../../public/images/logo.png";
+
 const Header=(props)=>{
+  const {gastoId}=useParams()
   const navigate = useNavigate()
   const location = useLocation();
   useEffect(() => {
@@ -17,16 +19,14 @@ const Header=(props)=>{
   <div id="navbar-container">
     <div id="logo" style={{backgroundImage: `url(${logo})`}} onClick={()=>{navigate("/")}}></div>
     <nav id="navbar">
-      {location.pathname === "/create" && <NavLink
+      {(location.pathname === "/create" || /\/edit\/.+/.test(location.pathname)) && <NavLink
         to="/"
-        id="gohome-button"
+          id="gohome-button"
         className={({ isActive })=> isActive? activeClassName : undefined}
-        className="rojo"
-        ><h5>Home</h5></NavLink>}
+        >Home</NavLink>}
       {props.isAuthenticated && location.pathname === "/dashboard" && <NavLink
         to="/create"
         className={({ isActive })=> isActive? activeClassName : undefined}
-        className="rojo"
         ><button id="add-button-navbar">Agregar nuevo gasto</button></NavLink>}
       {/* |
       <NavLink
@@ -35,12 +35,12 @@ const Header=(props)=>{
       {props.isAuthenticated && (<span>|</span>)}
       {props.isAuthenticated && (
       <button
-        id="btn-logout"
+        className="btn-negative"
         onClick={props.startLogOut}>Log Out</button>)}
-      {!props.isAuthenticated && (
+      {/* {!props.isAuthenticated && (
       <button
-        id="btn-login"
-        onClick={props.startLogIn}>Log In</button>)}
+        className="btn-negative"
+        onClick={props.startLogIn}>Log In</button>)} */}
     </nav>
 
   </div>

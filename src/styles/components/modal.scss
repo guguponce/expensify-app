@@ -1,0 +1,57 @@
+.overlay{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $background-modal;
+  @extend .flex-column;
+  justify-content: center;
+  align-items: center;
+  .modal-container{
+    position: relative;
+    padding: 5%;
+    background: white;
+    border: 2px solid $border-options;
+    border-radius: 20px;
+
+  .x-modal-btn{
+    position: absolute;
+    cursor: pointer;
+    top: 16px;
+    right: 24px;
+    font-size: 32px;
+  }
+
+  .modal-content{
+    border: 0px;
+    @extend .flex-column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      margin: 16px;
+    }
+    .option-btn-container{
+      @extend .fl-ro-spcbtw;
+
+      .btn-yes-delete{
+        padding: 16px 32px;
+        border-radius: 10px;
+        font-size: 24px;
+        background-color: $btn-accept-color;
+        border: $btn-accept-color;
+      }
+      .btn-no-delete{
+        padding: 16px 32px;
+        margin: 0 16px;
+        border-radius: 10px;
+        font-size: 32px;
+        background-color: $btn-remove-color;
+        border: $btn-remove-color;
+
+      }
+    }
+  }
+}
+}

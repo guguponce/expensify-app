@@ -4,7 +4,6 @@ $background-secundary-color: #C5E0ED;
 $navbar-text-color: #840606;
 $btn-remove-color: #db6e6a;
 $background-modal: #52A5F850;
-$background-main: white;
 $border-options: #ddd;
 $btn-accept-color: #5087B7;
 
@@ -26,38 +25,18 @@ flex-direction: column;
   justify-content: space-between;
 }
 
-
-// @font-face {
-//    font-family: mainfont;
-//    src: url("../../public/fonts/Lato-Bold.ttf");
-//    font-weight: bold;
-//    font-style: normal;
-// }
-//
-// @font-face {
-//    font-family: mainfont;
-//    src: url("../../public/fonts/Lato-Light.ttf");
-//    font-weight: lighter;
-//    font-style: normal;
-// }
-//
-// @font-face {
-//    font-family: mainfont;
-//    src: url("../../public/fonts/Lato-Italic.ttf");
-//    font-weight: normal;
-//    font-style: italic;
-// }
-//
-// @font-face {
-//    font-family: mainfont;
-//    src: url("../../public/fonts/Lato-Thin.ttf");
-//    font-weight: lighter;
-//    font-style: normal;
-// }
-
+// FONT
 @font-face {
   font-family: "mainfont";
   src: url("./base/Lato-Regular.ttf");
   font-weight: normal;
   font-style: normal;
+}
+
+// BUTTON/ANCHOR
+.button-anchor-style{
+    padding: 10px;
+    color: white;
+    border-radius: 3px;
+    margin: 16px;
 }

@@ -94,7 +94,7 @@ class GastosForm extends React.Component{
         {this.state.errorSubmitting && <p id="error-message">Por favor inserte un nombre y un monto.</p>}
         <br />
         <button type="submit"
-          className="btn btn-primary"
+          className="btn-positive"
           >Aceptar</button>
       </form>
   </div>

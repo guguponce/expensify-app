@@ -3,6 +3,7 @@
 }
 
 header{
+  z-index: 100;
   position: fixed;
   width: 100vw;
   @extend .fl-ro-spcbtw;
@@ -33,7 +34,8 @@ header{
 
     background-color: white;
     width: 30%;
-    @extend .fl-ro-spcbtw;
+    @extend .flex-row;
+    justify-content: space-around;
     align-items: center;
 
       color: $navbar-text-color;
@@ -44,25 +46,22 @@ header{
       background-color: $btn-accept-color;
       border: 1px solid $btn-accept-color;
       border-radius: 3px;
-
-
-
-
     }
-    .rojo{
+    #gohome-button{
       color: $navbar-text-color;
-      margin: 32px;
+      border: 2px solid $navbar-text-color;
+      @extend button;
+      text-decoration: none;
+      padding: 10px 20px;
       }
 
-    #btn-login{
+    .btn-positive{
       background-color: $btn-accept-color;
       border: 1px solid $btn-accept-color;
-      margin: 32px;
     }
-    #btn-logout{
+    .btn-negative{
       background-color: $btn-remove-color;
       border: 1px solid $btn-remove-color;
-      margin: 32px;
     }
   }
 }

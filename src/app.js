@@ -26,10 +26,10 @@ const visibleGastos = getVisibleGastos(currentState.gastos, currentState.filtros
 const container = document.getElementById("root")
 const htmlRoot = createRoot(container);
 htmlRoot.render(
-  <div id="loading-box">
-    <div>
-    <h1>Starting</h1>
-    <img src="/images/loading.gif" />
+  <div id="loading-container">
+    <div id="loading-box">
+      <h1>Starting</h1>
+      <img src="/images/loading.gif" />
     </div>
   </div>
 )

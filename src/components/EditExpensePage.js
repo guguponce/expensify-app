@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { startRemoveGasto, startEditGasto } from '../actions/gastos';
 import { sortByAmount } from '../actions/filtros';
 import { useNavigate, useParams } from 'react-router';
 import { connect } from 'react-redux';
 import GastosForm from './GastosForm';
+import Modal from "./Modal"
 
 
 const EditExpensePage=(props)=>{
+  const [openModal, setOpenModal] = useState(false)
+
   const navigate = useNavigate();
   const {gastoId}=useParams()
+
   const gastoAEditar = props.gastos.find((item)=>item.id===gastoId)
+
   return (
-  <div>
+  <div id="edit-container">
+    <div id="edit-box">
     <h2>Edit the expense: {gastoAEditar.name}</h2>
     <GastosForm
       gastoAEditarProp={gastoAEditar}
@@ -20,13 +26,19 @@ const EditExpensePage=(props)=>{
         setTimeout(()=>{navigate("/dashboard")},2000)
       }}
     />
-    <button
-      className="btn btn-danger"
-      onClick={(e)=>{
-        navigate("/")
-        props.dispatch(startRemoveGasto(gastoId))
-    }}
+    <button id={gastoId}
+      className="btn btn-danger btn-negative btn-edit-remove"
+      onClick={()=>{setOpenModal(true)}}
       >Remove</button>
+      {!!openModal &&
+        <Modal
+          wantToDelete={openModal}
+          onDelete={()=>{
+            navigate("/")
+            props.dispatch(startRemoveGasto(gastoId)) }}
+        setOpen={(boolean)=>{setOpenModal(boolean)}}
+      />}
+  </div>
   </div>
 )};
 

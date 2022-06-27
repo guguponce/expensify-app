@@ -9,7 +9,16 @@
 }
 
 button{
-  padding: 10px;
-  color: white;
-  border-radius: 3px;
+  @extend .button-anchor-style
+}
+
+.btn-negative{
+  background-color: $btn-remove-color;
+  border: $btn-remove-color;
+}
+
+
+.btn-positive{
+  background-color: $btn-accept-color;
+  border: $btn-accept-color;
 }

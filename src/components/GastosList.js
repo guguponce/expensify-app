@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import getVisibleGastos from "../selectors/gastos"
 import {startRemoveGasto} from "../actions/gastos"
 import GastoIndividual from "./GastoIndividual"
 import GastosListFiltros from "./GastosListFiltros"
+import Modal from "./Modal"
 import Summary from "./Summary"
 
 
-const GastosList=(props)=>(
-  <div id="dashboard-container">
+const GastosList=(props)=>{
+  const [openModal, setOpenModal] = useState(false)
+
+  return (<div id="dashboard-container">
     <div id="dashboard-box">
     <h2 id="gastos-list-title">Lista de Gastos:</h2>
     <div className="filtros-total-container">
@@ -18,6 +21,7 @@ const GastosList=(props)=>(
         <h3>Total filtrado:</h3>
         <h4>{`$${props.gastosVisibles.reduce(
           (total, item)=> total + item.amount, 0)}`}</h4>
+        <p>en {props.gastosVisibles.length} de {props.gastos.length} gastos.</p>
       </div>
     </div>
     <div id="gastos-list-container">
@@ -32,19 +36,23 @@ const GastosList=(props)=>(
             <GastoIndividual {...item} />
             <div className="edit-remove-container">
               <button id={item.id}
-                className="btn btn-danger"
-                onClick={(e)=>{
-                  props.dispatch(startRemoveGasto(item.id))
-                }}
+                className="btn-negative"
+                onClick={()=>{setOpenModal(true)}}
                 >Remove</button>
-            <Link to={`/edit/${item.id}`}><button className="edit-btn btn btn-primary">Edit</button></Link>
+                {!!openModal &&
+                  <Modal
+                    wantToDelete={openModal}
+                    onDelete={()=>{
+                  props.dispatch(startRemoveGasto(item.id)) }}
+                  setOpen={(boolean)=>{setOpenModal(boolean)}} />}
+            <Link to={`/edit/${item.id}`}><button className="edit-btn btn-positive">Edit</button></Link>
           </div>
           </div>
         )}))}
     </div>
     {props.gastos.length && <Summary gastos={props.gastos}/>}
   </div>
-</div>)
+</div>)}
 
   // props y data que pasaremos a GastosList
   const mapStateToProps=(state)=>{

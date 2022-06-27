@@ -1,12 +1,15 @@
-#loading-box{
+#loading-container{
   width: 100vw;
   height: 100vh;
   @extend .flex-column;
   justify-content: center;
   align-items: center;
-  div{
+  #loading-box{
     width: 20vw;
     height: 20vw;
+    @extend .flex-column;
+    justify-content: center;
+    align-items: center;
   h1{
     // position: absolute;
     text-align: center;
@@ -14,6 +17,7 @@
     z-index: 1;
     }
   img{
+    width: inherit;
     margin-top: -30px;
     display: block;
     z-index: 0;

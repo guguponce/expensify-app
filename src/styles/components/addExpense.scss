@@ -1,4 +1,5 @@
 #add-container{
+  position: fixed;
   margin: 0 auto;
   width: 100vw;
   height: 100vh;
@@ -9,7 +10,7 @@
   align-items: center;
 
   #add-box{
-    margin: 125px;
+    margin: 150px;
     height: auto;
     border-radius: 20px;
     background-color: $background-secundary-color;

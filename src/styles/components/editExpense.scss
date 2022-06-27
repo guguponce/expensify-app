@@ -1,0 +1,46 @@
+#edit-container{
+  position: fixed;
+  z-index: 0;
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  background-color: $background-main-color;
+
+  @extend .flex-column;
+  justify-content: flex-start;
+  align-items: center;
+
+  #edit-box{
+    margin: 150px;
+    height: auto;
+    border-radius: 20px;
+    background-color: $background-secundary-color;
+      @extend .flex-column;
+      justify-content: flex-start;
+      align-items: center;
+
+      h2{
+        margin: 40px 200px 40px;
+      }
+
+    #add-form-container{
+        width: 50%;
+        margin-bottom: 32px;
+      form{
+          width: 100%;
+          height: auto;
+
+          @extend .flex-column;
+          justify-content: flex-start;
+          align-items: center;
+
+
+}
+    }
+    .btn-edit-remove{
+      margin-bottom: 32px;
+    }
+  }
+
+
+}
