@@ -19,7 +19,11 @@ module.exports = {
       use: ["style-loader", "css-loader", "sass-loader"],
     },
     {
-      test: /\.(jpg|png|svg|gif)$/,
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        type: 'asset/inline',
+    },
+    {
+      test: /\.(jpg|png|svg|gif|webp)$/,
       type: 'asset/resource',
     }
     ]
