@@ -27,8 +27,16 @@ flex-direction: column;
 
 // FONT
 @font-face {
+    font-family: 'latoregular';
+    src: url('../../public/fonts/lato-webfontkit/lato-regular-webfont.woff2') format('woff2'),
+         url('../../public/fonts/lato-webfontkit/lato-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
   font-family: "mainfont";
-  src: url("./base/Lato-Regular.ttf");
+  src: url("./Lato-Regular.ttf");
   font-weight: normal;
   font-style: normal;
 }
