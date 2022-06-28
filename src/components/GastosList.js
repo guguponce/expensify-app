@@ -29,7 +29,7 @@ const GastosList=(props)=>{
         (<h3 className="no-gastos-text">No hay gastos dentro de los filtros aplicados.</h3>)
         : null}
       {props.gastos.length === 0 ?
-        (<h3 className="no-gastos-text">No Hay gastos realizados.</h3>)
+        (<h3 className="no-gastos-text">No hay gastos realizados.</h3>)
         : (props.gastosVisibles.map((item,index)=>{
           return (
           <div className="gasto-individual-container background-white" key={index}>
@@ -50,7 +50,7 @@ const GastosList=(props)=>{
           </div>
         )}))}
     </div>
-    {props.gastos.length && <Summary gastos={props.gastos}/>}
+    {!!props.gastos.length ? <Summary gastos={props.gastos}/> : null}
   </div>
 </div>)}
 

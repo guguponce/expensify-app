@@ -19,14 +19,10 @@ module.exports = {
       use: ["style-loader", "css-loader", "sass-loader"],
     },
     {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        test: /\.(jpg|png|svg|gif|webp|woff|woff2|eot|ttf)$/,
         type: 'asset/inline',
-    },
-    {
-      test: /\.(jpg|png|svg|gif|webp)$/,
-      type: 'asset/resource',
     }
-    ]
+      ]
   },
   devtool: "eval-cheap-module-source-map",
   devServer: {
